@@ -3,7 +3,8 @@
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Target } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Target, ExternalLink } from "lucide-react"
 
 export function AboutSection() {
   return (
@@ -158,23 +159,45 @@ export function AboutSection() {
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold text-foreground mb-4">Certifications</h3>
                 <div className="space-y-3">
-                  <div className="flex justify-between items-start">
-                    <div>
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex-1">
                       <h4 className="font-medium text-foreground">AWS Certified Developer – Associate</h4>
                       <p className="text-sm text-muted-foreground">Valid until Aug 4, 2027</p>
                     </div>
-                    <Badge variant="outline" className="text-xs">
-                      Active
-                    </Badge>
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      <Badge variant="outline" className="text-xs">
+                        Active
+                      </Badge>
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        className="text-xs h-8 px-3 hover:bg-primary hover:text-primary-foreground transition-colors"
+                        onClick={() => window.open('https://www.credly.com/badges/d04634db-ebcd-4b38-b50f-98759d0d71e3?source=linked_in_profile', '_blank')}
+                      >
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        Verify
+                      </Button>
+                    </div>
                   </div>
-                  <div className="flex justify-between items-start">
-                    <div>
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex-1">
                       <h4 className="font-medium text-foreground">Azure AI Fundamentals</h4>
                       <p className="text-sm text-muted-foreground">Issued Jul 22, 2022</p>
                     </div>
-                    <Badge variant="outline" className="text-xs">
-                      Certified
-                    </Badge>
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      <Badge variant="outline" className="text-xs">
+                        Certified
+                      </Badge>
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        className="text-xs h-8 px-3 hover:bg-primary hover:text-primary-foreground transition-colors"
+                        onClick={() => window.open('https://www.credly.com/badges/ca52d7fa-19f1-4223-91a1-aff70e294ba1/public_url', '_blank')}
+                      >
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        Verify
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </CardContent>

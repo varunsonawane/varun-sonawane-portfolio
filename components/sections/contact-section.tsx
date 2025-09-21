@@ -38,11 +38,26 @@ export function ContactSection() {
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
 
+      // Debug logging
+      console.log('EmailJS Debug Info:')
+      console.log('Service ID:', serviceId)
+      console.log('Template ID:', templateId)
+      console.log('Public Key:', publicKey ? 'Present' : 'Missing')
+
       if (!serviceId || !templateId || !publicKey) {
         throw new Error('EmailJS configuration is missing. Please check your environment variables.')
       }
 
       // Send email using EmailJS
+      console.log('Sending email with data:', {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Varun',
+        to_email: 'vsonawa23@gmail.com'
+      })
+
       const result = await emailjs.send(
         serviceId,
         templateId,
@@ -51,11 +66,12 @@ export function ContactSection() {
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_name: 'Varun',
-          to_email: 'vsonawa23@gmail.com'
+          to_name: 'Varun'
         },
         publicKey
       )
+
+      console.log('EmailJS Result:', result)
 
       if (result.status === 200) {
         toast({
@@ -178,25 +194,20 @@ export function ContactSection() {
                     <motion.div
                       key={index}
                       className="flex items-center gap-4 p-4 bg-card/50 backdrop-blur-sm rounded-lg border border-border/50 hover:bg-card/70 hover:border-border hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 cursor-pointer group relative overflow-hidden"
-                      style={{ willChange: 'transform, box-shadow' }}
                       whileHover={{ 
                         scale: 1.02,
                         y: -2,
-                        transition: { duration: 0.2, ease: "easeOut" }
+                        boxShadow: "0 20px 40px rgba(var(--primary), 0.15)",
+                        transition: { duration: 0.2 }
                       }}
-                      whileTap={{ scale: 0.98, transition: { duration: 0.1 } }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       {/* Glow effect overlay */}
                       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       
                       <motion.div 
                         className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors duration-300 relative z-10"
-                        style={{ willChange: 'transform' }}
-                        whileHover={{ 
-                          rotate: 5,
-                          scale: 1.1,
-                          transition: { duration: 0.2, ease: "easeOut" }
-                        }}
+                        whileHover={{ rotate: 5, boxShadow: "0 0 20px rgba(var(--primary), 0.3)" }}
                       >
                         <IconComponent className="h-5 w-5 text-primary group-hover:scale-110 transition-transform duration-300" />
                       </motion.div>
@@ -226,13 +237,12 @@ export function ContactSection() {
                   return (
                     <motion.div
                       key={link.label}
-                      style={{ willChange: 'transform' }}
                       whileHover={{ 
                         scale: 1.05,
                         y: -2,
-                        transition: { duration: 0.2, ease: "easeOut" }
+                        transition: { duration: 0.2 }
                       }}
-                      whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <Button 
                         variant="outline" 

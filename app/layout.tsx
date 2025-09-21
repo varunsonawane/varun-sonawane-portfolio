@@ -86,10 +86,12 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/images/VS_logo.png" />
         <link rel="apple-touch-icon" href="/images/VS_logo.png" />
-        <meta name="theme-color" content="#0f172a" />
+        <meta name="theme-color" content="#252525" />
+        <meta name="msapplication-navbutton-color" content="#252525" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`} style={{ cursor: 'none' }}>
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`} style={{ cursor: 'none', backgroundColor: '#252525' }}>
         <CursorEffect />
         <Suspense fallback={null}>
           {children}

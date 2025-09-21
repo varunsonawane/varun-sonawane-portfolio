@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.145 0 0); /* Dark background */
+  --background: oklch(0.145 0 0); /* Dark background #252525 */
   --foreground: oklch(0.985 0 0); /* Light text */
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -37,6 +37,15 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+}
+
+/* Force dark theme override */
+html {
+  background-color: #252525 !important;
+}
+
+html.dark {
+  background-color: #252525 !important;
 }
 
 @theme inline {
@@ -82,15 +91,80 @@
   cursor: none !important;
 }
 
+/* GitHub contributions scrolling styles */
+.github-contributions-scroll {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #6b7280 #e5e7eb;
+}
+
+.github-contributions-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.github-contributions-scroll::-webkit-scrollbar-track {
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+
+.github-contributions-scroll::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 4px;
+}
+
+.github-contributions-scroll::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+/* Dark theme scrollbar */
+.dark .github-contributions-scroll::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark .github-contributions-scroll::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+}
+
+.dark .github-contributions-scroll::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
+
+/* Mobile-specific scrolling optimizations */
+@media (max-width: 640px) {
+  .github-contributions-mobile-scroll {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    overscroll-behavior-x: contain !important;
+  }
+  
+  .github-contributions-mobile-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .github-contributions-mobile-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+
 html, body {
   cursor: none !important;
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background-color: var(--color-background) !important;
+  color: var(--color-foreground) !important;
+  min-height: 100vh;
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background-color: var(--color-background) !important;
+  color: var(--color-foreground) !important;
+}
+
+/* Ensure all containers use proper background */
+#__next, main {
+  background-color: var(--color-background) !important;
+  min-height: 100vh;
 }
 
 .cursor-element {

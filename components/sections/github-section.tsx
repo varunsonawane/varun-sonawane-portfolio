@@ -110,12 +110,12 @@ export function GitHubSection() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <CardContent className="p-6 text-center relative z-10">
                   <motion.div
-                    style={{ willChange: 'transform' }}
                     whileHover={{ 
                       rotate: 10, 
                       scale: 1.1,
-                      transition: { duration: 0.2, ease: "easeOut" }
+                      filter: "drop-shadow(0 0 20px rgba(var(--primary), 0.5))"
                     }}
+                    transition={{ duration: 0.2 }}
                   >
                     <Github className="h-8 w-8 text-foreground mx-auto mb-3" />
                   </motion.div>
@@ -214,11 +214,11 @@ export function GitHubSection() {
           {/* Figma-inspired clean GitHub contribution graph */}
           <motion.div 
             className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-[#30363d] rounded-xl p-6 lg:p-8 shadow-sm w-full hover:shadow-lg hover:shadow-blue-500/15 hover:border-gray-300 dark:hover:border-[#484f58] transition-all duration-300 relative overflow-hidden group"
-            style={{ willChange: 'transform, box-shadow' }}
             whileHover={{ 
               scale: 1.01,
               y: -2,
-              transition: { duration: 0.3, ease: "easeOut" }
+              boxShadow: "0 25px 50px rgba(59, 130, 246, 0.1)",
+              transition: { duration: 0.3 }
             }}
           >
             {/* Subtle glow effect overlay */}
@@ -297,9 +297,7 @@ export function GitHubSection() {
                 <span className="text-xs font-medium text-gray-600 dark:text-gray-400">More</span>
               </div>
               
-              <button className="text-xs text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                Learn how we count contributions
-              </button>
+              
             </div>
           </motion.div>
         </motion.div>

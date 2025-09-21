@@ -28,7 +28,7 @@ export function HeroSection() {
     setMounted(true)
   }, [])
 
-  // Typewriter effect - restored to normal speed and timing
+  // Typewriter effect
   useEffect(() => {
     const currentText = roles[currentRole]
     const timeout = setTimeout(() => {
@@ -37,12 +37,12 @@ export function HeroSection() {
       } else if (isDeleting && displayText !== '') {
         setDisplayText(currentText.slice(0, displayText.length - 1))
       } else if (!isDeleting && displayText === currentText) {
-        setTimeout(() => setIsDeleting(true), 1500) // Normal pause time
+        setTimeout(() => setIsDeleting(true), 1200)
       } else if (isDeleting && displayText === '') {
         setIsDeleting(false)
         setCurrentRole((prev) => (prev + 1) % roles.length)
       }
-    }, isDeleting ? 75 : 120) // Normal typing/deleting speed
+    }, isDeleting ? 60 : 100)
 
     return () => clearTimeout(timeout)
   }, [displayText, isDeleting, currentRole])
@@ -57,102 +57,92 @@ export function HeroSection() {
   if (!mounted) return null
 
   return (
-    <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-16">
+    <section ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-16 bg-background" style={{ backgroundColor: 'var(--color-background)' }}>
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 animate-pulse" />
       
-      {/* Optimized Particle System */}
+      {/* Particle System */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {Array.from({ length: 25 }).map((_, i) => { // Reduced from 50 to 25 particles
-          const randomX = Math.random() * 100 - 50
-          const randomY = Math.random() * 100 - 50
-          const duration = Math.random() * 8 + 12 // Reduced animation duration
-          
-          return (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-primary/20 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                willChange: 'transform, opacity'
-              }}
-              animate={{
-                x: [0, randomX],
-                y: [0, randomY],
-                opacity: [0.2, 0.6, 0.2],
-              }}
-              transition={{
-                duration,
+        {Array.from({ length: 50 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-primary/30 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              x: [0, Math.random() * 100 - 50],
+              y: [0, Math.random() * 100 - 50],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={
+              {
+                duration: Math.random() * 10 + 10,
                 repeat: Infinity,
                 ease: "linear",
-                delay: Math.random() * 2
-              }}
-            />
-          )
-        })}
+              }
+            }
+          />
+        ))}
       </div>
 
-      {/* Enhanced Floating geometric shapes with GPU acceleration */}
+      {/* Enhanced Floating geometric shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
           className="absolute top-20 left-10 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 bg-primary/10 rounded-lg rotate-12"
-          style={{ willChange: 'transform' }}
           animate={{
             y: [0, -20, 0],
-            rotateZ: [12, 25, 12],
-            scale: [1, 1.05, 1],
+            rotate: [12, 25, 12],
+            scale: [1, 1.1, 1],
           }}
           transition={{
-            duration: 5, // Reduced duration
+            duration: 6,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         />
         <motion.div
           className="absolute top-40 right-20 w-20 h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 bg-accent/20 rounded-lg -rotate-12"
-          style={{ willChange: 'transform' }}
           animate={{
             y: [0, 25, 0],
-            rotateZ: [-12, -30, -12],
+            rotate: [-12, -30, -12],
             x: [0, 15, 0],
           }}
           transition={{
-            duration: 6, // Reduced duration
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 0.8,
+            delay: 1,
           }}
         />
         <motion.div
           className="absolute bottom-40 left-20 w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 bg-muted/30 rounded-lg rotate-45"
-          style={{ willChange: 'transform' }}
           animate={{
             y: [0, -30, 0],
-            rotateZ: [45, 90, 45],
-            scale: [1, 0.85, 1],
+            rotate: [45, 90, 45],
+            scale: [1, 0.8, 1],
           }}
           transition={{
-            duration: 5.5, // Reduced duration
+            duration: 7,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1.5,
+            delay: 2,
           }}
         />
         <motion.div
           className="absolute bottom-20 right-10 w-28 h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 bg-primary/5 rounded-lg -rotate-6"
-          style={{ willChange: 'transform' }}
           animate={{
             y: [0, 20, 0],
-            rotateZ: [-6, 10, -6],
+            rotate: [-6, 10, -6],
             x: [0, -10, 0],
           }}
           transition={{
-            duration: 7, // Reduced duration
+            duration: 9,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 0.3,
+            delay: 0.5,
           }}
         />
       </div>
