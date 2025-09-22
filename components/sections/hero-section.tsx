@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Download, ExternalLink } from "lucide-react"
+import { Github, Linkedin, Download, ExternalLink, Instagram } from "lucide-react"
 import { motion, useAnimation, useInView } from "framer-motion"
 
 export function HeroSection() {
@@ -209,27 +209,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-wrap gap-6 lg:gap-8"
             >
-              <motion.div
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -5,
-                  transition: { duration: 0.3 }
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  variant="outline"
-                  size="lg" 
-                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg" 
-                  asChild
-                >
-                  <a href="https://drive.google.com/file/d/1s8hk3Xlj6-aX3xUeYzWDXMZ7RqI7L-fd/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                    <Download className="mr-3 h-5 w-5 lg:h-6 lg:w-6 transition-transform duration-300 hover:animate-bounce" />
-                    <span className="font-medium">Resume</span>
-                  </a>
-                </Button>
-              </motion.div>
-
+              {/* LinkedIn */}
               <motion.div
                 whileHover={{ 
                   scale: 1.05,
@@ -251,6 +231,7 @@ export function HeroSection() {
                 </Button>
               </motion.div>
 
+              {/* GitHub */}
               <motion.div
                 whileHover={{ 
                   scale: 1.05,
@@ -272,6 +253,7 @@ export function HeroSection() {
                 </Button>
               </motion.div>
 
+              {/* LeetCode */}
               <motion.div
                 whileHover={{ 
                   scale: 1.05,
@@ -289,6 +271,50 @@ export function HeroSection() {
                   <a href="https://leetcode.com/u/vsonawane" target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-3 h-5 w-5 lg:h-6 lg:w-6 transition-transform duration-300 hover:scale-110" />
                     <span className="font-medium">LeetCode</span>
+                  </a>
+                </Button>
+              </motion.div>
+
+              {/* Instagram */}
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -5,
+                  transition: { duration: 0.3 }
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg" 
+                  asChild
+                >
+                  <a href="https://www.instagram.com/varun__sonawane/" target="_blank" rel="noopener noreferrer">
+                    <Instagram className="mr-3 h-5 w-5 lg:h-6 lg:w-6 transition-transform duration-300 hover:rotate-12" />
+                    <span className="font-medium">Instagram</span>
+                  </a>
+                </Button>
+              </motion.div>
+
+              {/* Resume */}
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -5,
+                  transition: { duration: 0.3 }
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button 
+                  variant="outline"
+                  size="lg" 
+                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg" 
+                  asChild
+                >
+                  <a href="https://drive.google.com/file/d/1s8hk3Xlj6-aX3xUeYzWDXMZ7RqI7L-fd/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                    <Download className="mr-3 h-5 w-5 lg:h-6 lg:w-6 transition-transform duration-300 hover:animate-bounce" />
+                    <span className="font-medium">Resume</span>
                   </a>
                 </Button>
               </motion.div>

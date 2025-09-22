@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
 const navItems = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
-  
+  { name: "Experience", href: "#experience" },
+  { name: "Skills", href: "#skills" },
+  { name: "About", href: "#about" },
+  { name: "GitHub", href: "#github" },
   { name: "Contact", href: "#contact" },
 ]
 

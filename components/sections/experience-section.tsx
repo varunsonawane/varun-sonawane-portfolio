@@ -101,9 +101,17 @@ const experiences = [
 
 export function ExperienceSection() {
   const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>({})
+  const [expandedTechnologies, setExpandedTechnologies] = useState<Record<number, boolean>>({})
 
   const toggleExpanded = (index: number) => {
     setExpandedCards(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }))
+  }
+
+  const toggleTechnologies = (index: number) => {
+    setExpandedTechnologies(prev => ({
       ...prev,
       [index]: !prev[index]
     }))
@@ -233,7 +241,7 @@ export function ExperienceSection() {
                   <div>
                     <h4 className="font-semibold text-foreground mb-2 text-sm group-hover:text-primary transition-colors duration-300">Technologies Used</h4>
                     <div className="flex flex-wrap gap-1.5">
-                      {experience.technologies.slice(0, 6).map((tech, techIndex) => (
+                      {experience.technologies.slice(0, expandedTechnologies[index] ? experience.technologies.length : 6).map((tech, techIndex) => (
                         <motion.div
                           key={tech}
                           initial={{ opacity: 0, scale: 0.8 }}
@@ -247,9 +255,25 @@ export function ExperienceSection() {
                         </motion.div>
                       ))}
                       {experience.technologies.length > 6 && (
-                        <Badge variant="outline" className="text-xs px-2 py-1 hover:bg-accent/20 hover:text-accent hover:border-accent/50 hover:scale-110 transition-all duration-300 cursor-pointer animate-pulse">
-                          +{experience.technologies.length - 6}
-                        </Badge>
+                        <motion.div
+                          whileHover={{ scale: 1.1, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Badge 
+                            variant="outline" 
+                            className="text-xs px-2 py-1 hover:bg-accent/20 hover:text-accent hover:border-accent/50 transition-all duration-300 cursor-pointer select-none"
+                            onClick={() => toggleTechnologies(index)}
+                          >
+                            {expandedTechnologies[index] ? (
+                              <>
+                                <ChevronUp className="h-3 w-3 mr-1" />
+                                Show less
+                              </>
+                            ) : (
+                              `+${experience.technologies.length - 6}`
+                            )}
+                          </Badge>
+                        </motion.div>
                       )}
                     </div>
                   </div>

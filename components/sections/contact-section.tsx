@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink } from "lucide-react"
+import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink, Instagram } from "lucide-react"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -76,6 +76,12 @@ ${formData.email ? `Email: ${formData.email}` : ''}`
       label: "GitHub",
       href: "https://github.com/varunsonawane",
       color: "text-foreground",
+    },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      href: "https://www.instagram.com/varun__sonawane/",
+      color: "text-pink-500",
     },
     {
       icon: ExternalLink,
@@ -178,7 +184,7 @@ ${formData.email ? `Email: ${formData.email}` : ''}`
 
             <div>
               <h3 className="text-xl font-semibold text-foreground mb-4">Connect With Me</h3>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-3">
                 {socialLinks.map((link) => {
                   const IconComponent = link.icon
                   return (
@@ -194,7 +200,7 @@ ${formData.email ? `Email: ${formData.email}` : ''}`
                       <Button 
                         variant="outline" 
                         size="lg" 
-                        className="hover:bg-primary/10 hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 relative overflow-hidden group"
+                        className="hover:bg-primary/10 hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 relative overflow-hidden group h-12 px-4 min-w-[120px]"
                         asChild
                       >
                         <a href={link.href} target="_blank" rel="noopener noreferrer" className="relative z-10">

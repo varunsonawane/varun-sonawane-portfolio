@@ -6,23 +6,26 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github, Star, GitFork, ExternalLink, Calendar } from "lucide-react"
-import { fetchGitHubUser, fetchGitHubRepos, type GitHubUser, type GitHubRepo } from "@/lib/github"
+import { fetchGitHubUser, fetchGitHubRepos, fetchGitHubContributions, type GitHubUser, type GitHubRepo, type GitHubContributions } from "@/lib/github"
 
 export function GitHubSection() {
   const [user, setUser] = useState<GitHubUser | null>(null)
   const [repos, setRepos] = useState<GitHubRepo[]>([])
+  const [contributions, setContributions] = useState<GitHubContributions | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [userData, reposData] = await Promise.all([
+        const [userData, reposData, contributionsData] = await Promise.all([
           fetchGitHubUser("varunsonawane"),
           fetchGitHubRepos("varunsonawane"),
+          fetchGitHubContributions("varunsonawane"),
         ])
 
         setUser(userData)
         setRepos(reposData)
+        setContributions(contributionsData)
       } catch (error) {
         console.error("Error loading GitHub data:", error)
       } finally {
@@ -49,7 +52,7 @@ export function GitHubSection() {
   }
 
   return (
-    <section className="py-20 lg:py-24 xl:py-28 bg-background relative overflow-hidden">
+    <section id="github" className="py-20 lg:py-24 xl:py-28 bg-background relative overflow-hidden">
       {/* Random floating geometric shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[12%] left-[85%] w-16 h-16 lg:w-22 lg:h-22 xl:w-28 xl:h-28 bg-accent/9 rounded-lg rotate-[145deg] animate-float" />
@@ -227,7 +230,7 @@ export function GitHubSection() {
             <div className="flex items-center justify-between mb-4 sm:mb-6">
               <div>
                 <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 dark:text-white">
-                  936 contributions in the last year
+                  {contributions?.totalContributions || 0} contributions in the last year
                 </h4>
                 
               </div>
