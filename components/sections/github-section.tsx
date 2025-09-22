@@ -213,7 +213,7 @@ export function GitHubSection() {
           
           {/* Figma-inspired clean GitHub contribution graph */}
           <motion.div 
-            className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-[#30363d] rounded-xl p-6 lg:p-8 shadow-sm w-full hover:shadow-lg hover:shadow-blue-500/15 hover:border-gray-300 dark:hover:border-[#484f58] transition-all duration-300 relative overflow-hidden group"
+            className="bg-white dark:bg-[#0d1117] border border-gray-200 dark:border-[#30363d] rounded-xl p-4 sm:p-6 lg:p-8 shadow-sm w-full hover:shadow-lg hover:shadow-blue-500/15 hover:border-gray-300 dark:hover:border-[#484f58] transition-all duration-300 relative overflow-hidden group"
             whileHover={{ 
               scale: 1.01,
               y: -2,
@@ -224,57 +224,62 @@ export function GitHubSection() {
             {/* Subtle glow effect overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/3 via-transparent to-blue-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             {/* Header with contribution count */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4 sm:mb-6">
               <div>
-                <h4 className="text-base lg:text-lg font-semibold text-gray-900 dark:text-white">
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 dark:text-white">
                   936 contributions in the last year
                 </h4>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 sm:hidden">
+                  ← Swipe to scroll →
+                </p>
               </div>
               <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="font-medium">Live</span>
+                <span className="font-medium hidden sm:inline">Live</span>
               </div>
             </div>
 
             {/* Month labels */}
-            <div className="flex justify-start mb-3 ml-10 lg:ml-12 text-xs font-medium text-gray-600 dark:text-gray-400">
-              <div className="flex-1 text-left">Oct</div>
-              <div className="flex-1"></div>
-              <div className="flex-1 text-left">Dec</div>
-              <div className="flex-1"></div>
-              <div className="flex-1 text-left">Feb</div>
-              <div className="flex-1"></div>
-              <div className="flex-1 text-left">Apr</div>
-              <div className="flex-1"></div>
-              <div className="flex-1 text-left">Jun</div>
-              <div className="flex-1"></div>
-              <div className="flex-1 text-left">Aug</div>
-              <div className="flex-1"></div>
+            <div className="flex justify-start mb-3 ml-6 sm:ml-8 lg:ml-12 text-xs font-medium text-gray-600 dark:text-gray-400 overflow-x-auto github-contributions-mobile-scroll" style={{ 
+              WebkitOverflowScrolling: 'touch',
+              scrollBehavior: 'smooth'
+            }}>
+              <div className="min-w-[280px] sm:min-w-[400px] md:min-w-[600px] lg:min-w-[800px] xl:min-w-[900px] flex justify-between">
+                <div className="text-left">Oct</div>
+                <div className="text-left">Dec</div>
+                <div className="text-left">Feb</div>
+                <div className="text-left">Apr</div>
+                <div className="text-left">Jun</div>
+                <div className="text-left">Aug</div>
+              </div>
             </div>
 
             {/* Contribution graph with day labels */}
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-2 sm:gap-3">
               {/* Day labels */}
-              <div className="flex flex-col gap-1 text-xs font-medium text-gray-600 dark:text-gray-400 pt-2">
-                <div className="h-3">Mon</div>
+              <div className="flex flex-col gap-1 text-xs font-medium text-gray-600 dark:text-gray-400 pt-2 flex-shrink-0">
+                <div className="h-3 leading-3">Mon</div>
                 <div className="h-3"></div>
-                <div className="h-3">Wed</div>
+                <div className="h-3 leading-3">Wed</div>
                 <div className="h-3"></div>
-                <div className="h-3">Fri</div>
+                <div className="h-3 leading-3">Fri</div>
                 <div className="h-3"></div>
-                <div className="h-3">Sun</div>
+                <div className="h-3 leading-3">Sun</div>
               </div>
 
               {/* Actual contribution graph */}
-              <div className="w-full overflow-x-auto">
-                <div className="min-w-[800px] lg:min-w-[900px] xl:min-w-[1000px]">
+              <div className="w-full overflow-x-auto pb-2 github-contributions-mobile-scroll" style={{ 
+                WebkitOverflowScrolling: 'touch',
+                scrollBehavior: 'smooth',
+                overscrollBehaviorX: 'contain'
+              }}>
+                <div className="min-w-[280px] sm:min-w-[400px] md:min-w-[600px] lg:min-w-[800px] xl:min-w-[900px]">
                   <img
                     src="https://ghchart.rshah.org/39d353/varunsonawane"
                     alt="GitHub Contribution Graph"
-                    className="w-full h-auto"
+                    className="w-full h-auto max-w-none"
                     loading="lazy"
                     style={{
-                      maxWidth: '100%',
                       height: 'auto',
                       background: 'transparent'
                     }}
@@ -284,20 +289,18 @@ export function GitHubSection() {
             </div>
 
             {/* Clean legend at bottom */}
-            <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-200 dark:border-[#30363d]">
+            <div className="flex items-center justify-center sm:justify-between mt-4 sm:mt-6 pt-4 border-t border-gray-200 dark:border-[#30363d]">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-medium text-gray-600 dark:text-gray-400">Less</span>
                 <div className="flex items-center gap-1">
-                  <div className="w-3 h-3 bg-[#ebedf0] dark:bg-[#161b22] rounded-sm border border-gray-300 dark:border-[#30363d]"></div>
-                  <div className="w-3 h-3 bg-[#9be9a8] dark:bg-[#0e4429] rounded-sm"></div>
-                  <div className="w-3 h-3 bg-[#40c463] dark:bg-[#006d32] rounded-sm"></div>
-                  <div className="w-3 h-3 bg-[#30a14e] dark:bg-[#26a641] rounded-sm"></div>
-                  <div className="w-3 h-3 bg-[#216e39] dark:bg-[#39d353] rounded-sm"></div>
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#ebedf0] dark:bg-[#161b22] rounded-sm border border-gray-300 dark:border-[#30363d]"></div>
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#9be9a8] dark:bg-[#0e4429] rounded-sm"></div>
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#40c463] dark:bg-[#006d32] rounded-sm"></div>
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#30a14e] dark:bg-[#26a641] rounded-sm"></div>
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#216e39] dark:bg-[#39d353] rounded-sm"></div>
                 </div>
                 <span className="text-xs font-medium text-gray-600 dark:text-gray-400">More</span>
               </div>
-              
-              
             </div>
           </motion.div>
         </motion.div>

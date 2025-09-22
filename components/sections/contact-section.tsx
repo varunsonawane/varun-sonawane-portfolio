@@ -9,9 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink, Download } from "lucide-react"
-import { useToast } from "@/hooks/use-toast"
-import emailjs from '@emailjs/browser'
+import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink } from "lucide-react"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -20,80 +18,29 @@ export function ContactSection() {
     subject: "",
     message: "",
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast } = useToast()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
+    
+    // Create mailto URL with pre-filled information
+    const mailtoSubject = formData.subject ? `${formData.subject}` : "Contact from Portfolio"
+    const mailtoBody = `Hi Varun,
 
-    try {
-      // EmailJS Configuration
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+${formData.message}
 
-      // Debug logging
-      console.log('EmailJS Debug Info:')
-      console.log('Service ID:', serviceId)
-      console.log('Template ID:', templateId)
-      console.log('Public Key:', publicKey ? 'Present' : 'Missing')
+Best regards,
+${formData.name}
+${formData.email ? `Email: ${formData.email}` : ''}`
 
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error('EmailJS configuration is missing. Please check your environment variables.')
-      }
-
-      // Send email using EmailJS
-      console.log('Sending email with data:', {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        to_name: 'Varun',
-        to_email: 'vsonawa23@gmail.com'
-      })
-
-      const result = await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_name: 'Varun'
-        },
-        publicKey
-      )
-
-      console.log('EmailJS Result:', result)
-
-      if (result.status === 200) {
-        toast({
-          title: "Message sent successfully!",
-          description: "Thank you for reaching out. I'll get back to you soon.",
-        })
-        setFormData({ name: "", email: "", subject: "", message: "" })
-      } else {
-        throw new Error('Failed to send email')
-      }
-    } catch (error) {
-      console.error('EmailJS Error:', error)
-      toast({
-        title: "Error sending message",
-        description: error instanceof Error && error.message.includes('EmailJS configuration') 
-          ? "Email service is not configured. Please contact me directly via email."
-          : "Please try again or contact me directly via email.",
-        variant: "destructive",
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
+    const mailtoURL = `mailto:vsonawa23@gmail.com?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`
+    
+    // Open default mail client
+    window.location.href = mailtoURL
   }
 
   const contactInfo = [
@@ -338,18 +285,9 @@ export function ContactSection() {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-foreground mr-2" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4 mr-2" />
-                        Send Message
-                      </>
-                    )}
+                  <Button type="submit" size="lg" className="w-full">
+                    <Send className="h-4 w-4 mr-2" />
+                    Send Message
                   </Button>
                 </form>
               </CardContent>
