@@ -19,7 +19,7 @@ const featuredProjects = [
       "Production-ready REST API with input validation and concurrency",
     ],
     technologies: ["Flask", "Docker", "Qwen LLM", "Ollama", "ReAct Framework", "Python", "REST API", "React"],
-    githubUrl: "https://github.com/varunsonawane/ideagenie",
+    githubUrl: "https://github.com/varunsonawane/IdeaGeine",
     liveUrl: null,
     featured: true,
     award: "2nd Prize Winner",
