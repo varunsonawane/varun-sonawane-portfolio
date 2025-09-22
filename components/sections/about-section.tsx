@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Target, ExternalLink } from "lucide-react"
+import { Target, ExternalLink, BookOpen } from "lucide-react"
 
 export function AboutSection() {
   return (
@@ -47,7 +47,8 @@ export function AboutSection() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -111,8 +112,62 @@ export function AboutSection() {
                 </CardContent>
               </Card>
             </motion.div>
+
+            {/* Publications Card moved to left column */}
+            <motion.div
+              whileHover={{ 
+                scale: 1.02,
+                y: -5,
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/70 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-pointer">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors duration-200">
+                      <BookOpen className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">Publications</h3>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-start gap-4">
+                      <div className="flex-1">
+                        <h4 className="font-medium text-foreground text-sm leading-tight">Implementation Paper: Forecasting Stock Price using Machine Learning</h4>
+                        <p className="text-xs text-muted-foreground mt-1">IJARSCT • May 16, 2023</p>
+                      </div>
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        className="text-xs h-8 px-3 hover:bg-primary hover:text-primary-foreground transition-colors flex-shrink-0"
+                        onClick={() => window.open('https://ijarsct.co.in/Paper11104.pdf', '_blank')}
+                      >
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        View
+                      </Button>
+                    </div>
+                    <div className="flex justify-between items-start gap-4">
+                      <div className="flex-1">
+                        <h4 className="font-medium text-foreground text-sm leading-tight">The Review: Forecasting Stock Price using Machine Learning</h4>
+                        <p className="text-xs text-muted-foreground mt-1">IJARSCT • May 4, 2023</p>
+                      </div>
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        className="text-xs h-8 px-3 hover:bg-primary hover:text-primary-foreground transition-colors flex-shrink-0"
+                        onClick={() => window.open('https://ijarsct.co.in/Paper9866.pdf', '_blank')}
+                      >
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        View
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </motion.div>
 
+          {/* Right Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
