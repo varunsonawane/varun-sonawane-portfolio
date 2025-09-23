@@ -78,9 +78,9 @@ export function AboutSection() {
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                From hackathon leader to hackathon winner, from solving SQL queries to designing cloud-scale ETL
-                pipelines, my story is about turning curiosity into scalable engineering. I thrive at the intersection
-                of data engineering and cloud architecture, building systems that not only work but scale beautifully.
+                From solving SQL queries to designing cloud-scale ETL pipelines, my story is about turning curiosity into scalable engineering. 
+                Along the way, I’ve gone from building projects at hackathons to winning them, thriving at the intersection of data engineering and cloud architecture,
+                where I focus on building systems that not only work but scale beautifully.
               </motion.p>
             </motion.div>
 
