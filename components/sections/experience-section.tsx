@@ -10,6 +10,7 @@ const experiences = [
   {
     title: "Data Engineer Intern",
     company: "The Commons XR",
+    companyUrl: "https://thecommonsxr.com/",
     location: "San Diego, USA",
     period: "May 2025 - Aug 2025",
     type: "Internship",
@@ -34,6 +35,7 @@ const experiences = [
   {
     title: "Technical Lead",
     company: "Unstop Igniters",
+    companyUrl: "https://unstop.com/unstop-igniters-club",
     location: "India",
     period: "Mar 2022 - Jul 2023",
     type: "Leadership",
@@ -55,6 +57,7 @@ const experiences = [
   {
     title: "Data Science Intern",
     company: "CodeClause",
+    companyUrl: "https://internship.codeclause.com/",
     location: "Pune, Maharashtra, India",
     period: "Feb 2022 - Mar 2022",
     type: "Internship",
@@ -77,6 +80,7 @@ const experiences = [
   {
     title: "Ethical Hacking & Cyber Security Intern",
     company: "Supraja Technologies",
+    companyUrl: "https://suprajatechnologies.com/",
     location: "India",
     period: "Aug 2020 - Sep 2020",
     type: "Internship",
@@ -177,7 +181,14 @@ export function ExperienceSection() {
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-muted-foreground text-sm">
                         <div className="flex items-center gap-1 group-hover:text-foreground transition-colors duration-300">
                           <ExternalLink className="h-4 w-4 group-hover:scale-110 group-hover:text-primary transition-all duration-300" />
-                          <span className="font-medium">{experience.company}</span>
+                          <a 
+                            href={experience.companyUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="font-medium hover:text-primary hover:underline transition-all duration-300"
+                          >
+                            {experience.company}
+                          </a>
                         </div>
                         <div className="flex items-center gap-1 group-hover:text-foreground transition-colors duration-300">
                           <MapPin className="h-4 w-4 group-hover:scale-110 group-hover:text-accent transition-all duration-300" />
