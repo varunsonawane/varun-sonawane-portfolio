@@ -59,7 +59,7 @@ ${formData.email ? `Email: ${formData.email}` : ''}`
     {
       icon: MapPin,
       label: "Location",
-      value: "Bloomington, IN",
+      value: "United States",
       href: null,
     },
   ]
