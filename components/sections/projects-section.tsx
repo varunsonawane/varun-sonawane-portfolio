@@ -8,6 +8,24 @@ import { Github, ExternalLink, Trophy, Star, GitFork } from "lucide-react"
 
 const featuredProjects = [
   {
+    title: "VoiceLegal AI",
+    subtitle: "AI-Powered Legal Document Assistant",
+    description:
+      "A Chrome extension that analyzes legal documents instantly using Google Gemini 2.5 and allows users to ask questions via voice interaction powered by ElevenLabs.",
+    achievements: [
+      "Built for AI Partner Catalyst Hackathon 2025",
+      "Integrated Google Gemini 2.5 Flash for analysis",
+      "Real-time voice interaction with ElevenLabs Conversational AI",
+      "Seamless browser integration via Chrome Extension",
+    ],
+    technologies: ["Google Gemini", "ElevenLabs", "React", "FastAPI", "Chrome Extension", "Docker", "GCP"],
+    githubUrl: "https://github.com/varunsonawane/voicelegal-ai-web-extension",
+    liveUrl: null,
+    featured: true,
+    award: "Hackathon Project",
+  },
+
+  {
     title: "IdeaGenie",
     subtitle: "LLM-Powered Innovation Ranking Engine",
     description:
@@ -23,6 +41,23 @@ const featuredProjects = [
     liveUrl: null,
     featured: true,
     award: "2nd Prize Winner",
+  },
+  {
+    title: "AWS Big Data Pipeline",
+    subtitle: "End-to-End Health Data Processing System",
+    description:
+      "A scalable big data pipeline handling 100,000+ health records using distributed PySpark on AWS EC2. Features automated ML training via SageMaker Autopilot and serverless event-driven processing.",
+    achievements: [
+      "Processed 100k+ records with distributed PySpark on EC2",
+      "Automated ML model training using AWS SageMaker Autopilot",
+      "Serverless data pipeline with AWS Lambda & S3 triggers",
+      "Discovered 72% population risk via Power BI analytics",
+    ],
+    technologies: ["AWS SageMaker", "PySpark", "AWS Lambda", "EC2", "S3", "Power BI", "Python"],
+    githubUrl: "https://github.com/varunsonawane/Big-data-analytics-aws-pyspark",
+    liveUrl: null,
+    featured: true,
+    award: null,
   },
   {
     title: "ShieldScraper",
@@ -88,7 +123,7 @@ const featuredProjects = [
 ]
 
 const additionalProjects = [
-  
+
   {
     title: "Term Deposit Subscription Prediction",
     description: "Machine learning model to predict customer term deposit subscription using classification algorithms and data analysis.",
@@ -113,8 +148,8 @@ const additionalProjects = [
     stars: 6,
     forks: 2,
   },
- 
-  
+
+
 ]
 
 export function ProjectsSection() {
@@ -167,79 +202,79 @@ export function ProjectsSection() {
               viewport={{ once: true }}
               className="h-full"
             >
-              <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/80 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40 hover:scale-[1.01] transition-all duration-500 group relative overflow-hidden">
+              <Card className="h-full flex flex-col bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/80 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40 hover:scale-[1.01] transition-all duration-500 group relative overflow-hidden">
                 {/* Animated background gradient on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
-                <CardHeader className="pb-4">
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
-                        {project.award && (
-                          <div className="flex items-center gap-1 px-2 py-1 bg-yellow-500/10 text-yellow-500 rounded-full text-xs font-medium group-hover:bg-yellow-500/20 group-hover:scale-105 transition-all duration-300">
-                            <Trophy className="h-3 w-3 group-hover:rotate-12 transition-transform duration-300" />
-                            {project.award}
-                          </div>
-                        )}
+                  <CardHeader className="pb-4">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
+                          {project.award && (
+                            <div className="flex items-center gap-1 px-2 py-1 bg-yellow-500/10 text-yellow-500 rounded-full text-xs font-medium group-hover:bg-yellow-500/20 group-hover:scale-105 transition-all duration-300">
+                              <Trophy className="h-3 w-3 group-hover:rotate-12 transition-transform duration-300" />
+                              {project.award}
+                            </div>
+                          )}
+                        </div>
+                        <p className="text-muted-foreground font-medium mb-3 group-hover:text-foreground transition-colors duration-300">{project.subtitle}</p>
+                        <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">{project.description}</p>
                       </div>
-                      <p className="text-muted-foreground font-medium mb-3 group-hover:text-foreground transition-colors duration-300">{project.subtitle}</p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">{project.description}</p>
-                    </div>
-                    <div className="flex gap-2">
-                      <Button variant="outline" size="sm" asChild className="hover:bg-primary/10 hover:border-primary/50 hover:text-primary hover:scale-105 transition-all duration-300">
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                          Code
-                        </a>
-                      </Button>
-                      {project.liveUrl && (
-                        <Button variant="outline" size="sm" asChild className="hover:bg-accent/10 hover:border-accent/50 hover:text-accent hover:scale-105 transition-all duration-300">
-                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                            Live Demo
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm" asChild className="hover:bg-primary/10 hover:border-primary/50 hover:text-primary hover:scale-105 transition-all duration-300">
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                            Code
                           </a>
                         </Button>
-                      )}
+                        {project.liveUrl && (
+                          <Button variant="outline" size="sm" asChild className="hover:bg-accent/10 hover:border-accent/50 hover:text-accent hover:scale-105 transition-all duration-300">
+                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                              <ExternalLink className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                              Live Demo
+                            </a>
+                          </Button>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">Key Achievements</h4>
-                    <ul className="space-y-2">
-                      {project.achievements.map((achievement, achievementIndex) => (
-                        <motion.li 
-                          key={achievementIndex} 
-                          className="flex items-start gap-3 hover:bg-primary/5 rounded-lg p-2 -m-2 transition-all duration-300 group/item"
-                          whileHover={{ x: 4 }}
-                        >
-                          <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 group-hover/item:scale-125 group-hover/item:bg-accent transition-all duration-300" />
-                          <p className="text-muted-foreground text-sm leading-relaxed group-hover/item:text-foreground transition-colors duration-300">{achievement}</p>
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">Key Achievements</h4>
+                      <ul className="space-y-2">
+                        {project.achievements.map((achievement, achievementIndex) => (
+                          <motion.li
+                            key={achievementIndex}
+                            className="flex items-start gap-3 hover:bg-primary/5 rounded-lg p-2 -m-2 transition-all duration-300 group/item"
+                            whileHover={{ x: 4 }}
+                          >
+                            <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0 group-hover/item:scale-125 group-hover/item:bg-accent transition-all duration-300" />
+                            <p className="text-muted-foreground text-sm leading-relaxed group-hover/item:text-foreground transition-colors duration-300">{achievement}</p>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
 
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">Technologies</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <motion.div
-                          key={tech}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: techIndex * 0.03 }}
-                          whileHover={{ scale: 1.1, y: -2 }}
-                        >
-                          <Badge variant="secondary" className="text-xs hover:bg-primary/20 hover:text-primary hover:border-primary/30 transition-all duration-300 cursor-pointer">
-                            {tech}
-                          </Badge>
-                        </motion.div>
-                      ))}
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">Technologies</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, techIndex) => (
+                          <motion.div
+                            key={tech}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, delay: techIndex * 0.03 }}
+                            whileHover={{ scale: 1.1, y: -2 }}
+                          >
+                            <Badge variant="secondary" className="text-xs hover:bg-primary/20 hover:text-primary hover:border-primary/30 transition-all duration-300 cursor-pointer">
+                              {tech}
+                            </Badge>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
+                  </CardContent>
                 </div>
               </Card>
             </motion.div>
@@ -267,46 +302,46 @@ export function ProjectsSection() {
                   {/* Animated background gradient on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-accent/3 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                   <div className="relative z-10">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-start justify-between gap-2">
-                      <CardTitle className="text-lg text-foreground leading-tight group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
-                      <Button variant="ghost" size="sm" asChild className="flex-shrink-0 hover:bg-primary/10 hover:text-primary hover:scale-110 transition-all duration-300">
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
-                        </a>
-                      </Button>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">{project.description}</p>
-
-                    <div className="flex flex-wrap gap-1">
-                      {project.technologies.map((tech, techIndex) => (
-                        <motion.div
-                          key={tech}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: techIndex * 0.05 }}
-                          whileHover={{ scale: 1.1, y: -2 }}
-                        >
-                          <Badge variant="secondary" className="text-xs hover:bg-primary/20 hover:text-primary hover:border-primary/30 transition-all duration-300 cursor-pointer">
-                            {tech}
-                          </Badge>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground pt-2 border-t border-border/50 group-hover:text-foreground transition-colors duration-300">
-                      <div className="flex items-center gap-1 hover:text-primary hover:scale-110 transition-all duration-300 cursor-pointer">
-                        <Star className="h-3 w-3 group-hover:text-yellow-500 transition-colors duration-300" />
-                        {project.stars}
+                    <CardHeader className="pb-3">
+                      <div className="flex items-start justify-between gap-2">
+                        <CardTitle className="text-lg text-foreground leading-tight group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
+                        <Button variant="ghost" size="sm" asChild className="flex-shrink-0 hover:bg-primary/10 hover:text-primary hover:scale-110 transition-all duration-300">
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
+                          </a>
+                        </Button>
                       </div>
-                      <div className="flex items-center gap-1 hover:text-accent hover:scale-110 transition-all duration-300 cursor-pointer">
-                        <GitFork className="h-3 w-3 group-hover:text-blue-500 transition-colors duration-300" />
-                        {project.forks}
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">{project.description}</p>
+
+                      <div className="flex flex-wrap gap-1">
+                        {project.technologies.map((tech, techIndex) => (
+                          <motion.div
+                            key={tech}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, delay: techIndex * 0.05 }}
+                            whileHover={{ scale: 1.1, y: -2 }}
+                          >
+                            <Badge variant="secondary" className="text-xs hover:bg-primary/20 hover:text-primary hover:border-primary/30 transition-all duration-300 cursor-pointer">
+                              {tech}
+                            </Badge>
+                          </motion.div>
+                        ))}
                       </div>
-                    </div>
-                  </CardContent>
+
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground pt-2 border-t border-border/50 group-hover:text-foreground transition-colors duration-300">
+                        <div className="flex items-center gap-1 hover:text-primary hover:scale-110 transition-all duration-300 cursor-pointer">
+                          <Star className="h-3 w-3 group-hover:text-yellow-500 transition-colors duration-300" />
+                          {project.stars}
+                        </div>
+                        <div className="flex items-center gap-1 hover:text-accent hover:scale-110 transition-all duration-300 cursor-pointer">
+                          <GitFork className="h-3 w-3 group-hover:text-blue-500 transition-colors duration-300" />
+                          {project.forks}
+                        </div>
+                      </div>
+                    </CardContent>
                   </div>
                 </Card>
               </motion.div>

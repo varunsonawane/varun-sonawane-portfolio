@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from "@/components/ui/toaster"
 import { CursorEffect } from "@/components/cursor-effect"
 import { Suspense } from "react"
+import { ScrollToTop } from "@/components/scroll-to-top"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -93,6 +94,7 @@ export default function RootLayout({
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`} style={{ cursor: 'none', backgroundColor: '#252525' }}>
         <CursorEffect />
+        <ScrollToTop />
         <Suspense fallback={null}>
           {children}
           <Toaster />

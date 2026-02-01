@@ -5,6 +5,12 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Download, ExternalLink, Instagram } from "lucide-react"
 import { motion, useAnimation, useInView } from "framer-motion"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false)
@@ -18,10 +24,10 @@ export function HeroSection() {
   const roles = [
     'Data Engineer',
     'Software Developer',
-    'AI Engineer', 
+    'AI Engineer',
     'ML Engineer',
     'Cloud Architect',
-    
+
   ]
 
   useEffect(() => {
@@ -61,7 +67,7 @@ export function HeroSection() {
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 animate-pulse" />
-      
+
       {/* Particle System */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 50 }).map((_, i) => (
@@ -90,7 +96,7 @@ export function HeroSection() {
 
       {/* Enhanced Floating geometric shapes */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
+        <motion.div
           className="absolute top-20 left-10 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 bg-primary/10 rounded-lg rotate-12"
           animate={{
             y: [0, -20, 0],
@@ -211,17 +217,17 @@ export function HeroSection() {
             >
               {/* LinkedIn */}
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   y: -5,
                   transition: { duration: 0.3 }
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg" 
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg"
                   asChild
                 >
                   <a href="https://linkedin.com/in/varun-sonawane" target="_blank" rel="noopener noreferrer">
@@ -233,17 +239,17 @@ export function HeroSection() {
 
               {/* GitHub */}
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   y: -5,
                   transition: { duration: 0.3 }
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg" 
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg"
                   asChild
                 >
                   <a href="https://github.com/varunsonawane" target="_blank" rel="noopener noreferrer">
@@ -255,17 +261,17 @@ export function HeroSection() {
 
               {/* LeetCode */}
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   y: -5,
                   transition: { duration: 0.3 }
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg" 
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg"
                   asChild
                 >
                   <a href="https://leetcode.com/u/vsonawane" target="_blank" rel="noopener noreferrer">
@@ -277,17 +283,17 @@ export function HeroSection() {
 
               {/* Instagram */}
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   y: -5,
                   transition: { duration: 0.3 }
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg" 
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg"
                   asChild
                 >
                   <a href="https://www.instagram.com/varun__sonawane/" target="_blank" rel="noopener noreferrer">
@@ -298,26 +304,32 @@ export function HeroSection() {
               </motion.div>
 
               {/* Resume */}
-              <motion.div
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -5,
-                  transition: { duration: 0.3 }
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  variant="outline"
-                  size="lg" 
-                  className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg" 
-                  asChild
-                >
-                  <a href="https://drive.google.com/file/d/1s8hk3Xlj6-aX3xUeYzWDXMZ7RqI7L-fd/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                    <Download className="mr-3 h-5 w-5 lg:h-6 lg:w-6 transition-transform duration-300 hover:animate-bounce" />
-                    <span className="font-medium">Resume</span>
-                  </a>
-                </Button>
-              </motion.div>
+              <div>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="hover:bg-primary/20 hover:text-foreground hover:border-primary hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 backdrop-blur-sm h-12 lg:h-14 px-6 lg:px-8 text-base lg:text-lg hover:scale-105 active:scale-95"
+                    >
+                      <Download className="mr-3 h-5 w-5 lg:h-6 lg:w-6 transition-transform duration-300 group-hover:animate-bounce" />
+                      <span className="font-medium">Resume</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-56 bg-background/95 backdrop-blur-md border-border/50">
+                    <DropdownMenuItem asChild className="cursor-pointer hover:bg-primary/10">
+                      <a href="/resumes/Software_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        <span className="font-medium">Software & AI Resume</span>
+                      </a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild className="cursor-pointer hover:bg-primary/10">
+                      <a href="/resumes/Data_Engineering_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                        <span className="font-medium">Data Engineering Resume</span>
+                      </a>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </motion.div>
 
             {/* Stats
@@ -349,13 +361,13 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative flex justify-center lg:justify-end"
           >
-            <motion.div 
+            <motion.div
               className="relative"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
               {/* Enhanced Glow effect */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-2xl"
                 animate={{
                   scale: [1, 1.1, 1],
@@ -369,7 +381,7 @@ export function HeroSection() {
               />
 
               {/* Portrait container with magnetic effect */}
-              <motion.div 
+              <motion.div
                 className="relative bg-gradient-to-br from-muted/10 to-muted/5 rounded-2xl p-10 lg:p-12 xl:p-16 backdrop-blur-sm border border-border/50"
                 whileHover={{
                   boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
@@ -393,7 +405,7 @@ export function HeroSection() {
               </motion.div>
 
               {/* Enhanced Floating tech icons */}
-              <motion.div 
+              <motion.div
                 className="absolute -top-6 -right-6 lg:-top-8 lg:-right-8 bg-primary/10 backdrop-blur-sm rounded-lg p-4 lg:p-6"
                 animate={{
                   y: [0, -10, 0],

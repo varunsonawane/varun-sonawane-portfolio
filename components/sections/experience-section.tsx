@@ -33,6 +33,27 @@ const experiences = [
     ],
   },
   {
+    title: "Software Engineering Intern",
+    company: "CodeClause",
+    companyUrl: "https://internship.codeclause.com/",
+    location: "India",
+    period: "July 2023 - Jan 2024",
+    type: "Internship",
+    achievements: [
+      "Increased backend system reliability by reducing recurring service failures across 5+ microservices by implementing unit tests and integrating CI/CD pipelines.",
+      "Delivered a high-impact user-facing feature by building and integrating a React-based frontend with REST APIs, improving usability.",
+      "Reduced resolution time by ~20% by defining infrastructure using IaC and adding structured logging and metrics for faster root-cause analysis.",
+    ],
+    technologies: [
+      "React",
+      "REST APIs",
+      "CI/CD",
+      "Infrastructure as Code",
+      "Microservices",
+      "Unit Testing",
+    ],
+  },
+  {
     title: "Technical Lead",
     company: "Unstop Igniters",
     companyUrl: "https://unstop.com/unstop-igniters-club",
@@ -158,8 +179,8 @@ export function ExperienceSection() {
           <p className="text-muted-foreground text-lg lg:text-xl max-w-2xl lg:max-w-3xl mx-auto">
             My professional journey and key achievements
           </p>
-        </motion.div>        
-        
+        </motion.div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {experiences.map((experience, index) => (
             <motion.div
@@ -168,127 +189,127 @@ export function ExperienceSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="h-full"
+              className={`h-full ${index === experiences.length - 1 && experiences.length % 2 !== 0 ? "lg:col-span-2 lg:w-[calc(50%-1rem)] lg:mx-auto" : ""}`}
             >
               <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/80 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40 hover:scale-[1.02] transition-all duration-500 group relative overflow-hidden">
                 {/* Animated background gradient on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
-                <CardHeader className="pb-4">
-                  <div className="flex flex-col gap-3">
+                  <CardHeader className="pb-4">
+                    <div className="flex flex-col gap-3">
+                      <div>
+                        <CardTitle className="text-lg xl:text-xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{experience.title}</CardTitle>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-muted-foreground text-sm">
+                          <div className="flex items-center gap-1 group-hover:text-foreground transition-colors duration-300">
+                            <ExternalLink className="h-4 w-4 group-hover:scale-110 group-hover:text-primary transition-all duration-300" />
+                            <a
+                              href={experience.companyUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-medium hover:text-primary hover:underline transition-all duration-300"
+                            >
+                              {experience.company}
+                            </a>
+                          </div>
+                          <div className="flex items-center gap-1 group-hover:text-foreground transition-colors duration-300">
+                            <MapPin className="h-4 w-4 group-hover:scale-110 group-hover:text-accent transition-all duration-300" />
+                            <span>{experience.location}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                        <div className="flex items-center gap-1 text-muted-foreground text-sm group-hover:text-foreground transition-colors duration-300">
+                          <Calendar className="h-4 w-4 group-hover:scale-110 group-hover:text-secondary transition-all duration-300" />
+                          <span>{experience.period}</span>
+                        </div>
+                        <Badge variant="outline" className="self-start sm:self-auto group-hover:bg-primary/10 group-hover:border-primary/50 group-hover:text-primary transition-all duration-300">{experience.type}</Badge>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
                     <div>
-                      <CardTitle className="text-lg xl:text-xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{experience.title}</CardTitle>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-muted-foreground text-sm">
-                        <div className="flex items-center gap-1 group-hover:text-foreground transition-colors duration-300">
-                          <ExternalLink className="h-4 w-4 group-hover:scale-110 group-hover:text-primary transition-all duration-300" />
-                          <a 
-                            href={experience.companyUrl} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="font-medium hover:text-primary hover:underline transition-all duration-300"
+                      <h4 className="font-semibold text-foreground mb-3 text-sm group-hover:text-primary transition-colors duration-300">Key Achievements</h4>
+                      <ul className="space-y-2">
+                        {experience.achievements.slice(0, expandedCards[index] ? experience.achievements.length : 2).map((achievement, achievementIndex) => (
+                          <motion.li
+                            key={achievementIndex}
+                            className="flex items-start gap-2 hover:bg-primary/5 rounded-lg p-2 -m-2 transition-all duration-300 group/item"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            transition={{ duration: 0.3 }}
+                            whileHover={{ x: 4 }}
                           >
-                            {experience.company}
-                          </a>
-                        </div>
-                        <div className="flex items-center gap-1 group-hover:text-foreground transition-colors duration-300">
-                          <MapPin className="h-4 w-4 group-hover:scale-110 group-hover:text-accent transition-all duration-300" />
-                          <span>{experience.location}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                      <div className="flex items-center gap-1 text-muted-foreground text-sm group-hover:text-foreground transition-colors duration-300">
-                        <Calendar className="h-4 w-4 group-hover:scale-110 group-hover:text-secondary transition-all duration-300" />
-                        <span>{experience.period}</span>
-                      </div>
-                      <Badge variant="outline" className="self-start sm:self-auto group-hover:bg-primary/10 group-hover:border-primary/50 group-hover:text-primary transition-all duration-300">{experience.type}</Badge>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-3 text-sm group-hover:text-primary transition-colors duration-300">Key Achievements</h4>
-                    <ul className="space-y-2">
-                      {experience.achievements.slice(0, expandedCards[index] ? experience.achievements.length : 2).map((achievement, achievementIndex) => (
-                        <motion.li 
-                          key={achievementIndex} 
-                          className="flex items-start gap-2 hover:bg-primary/5 rounded-lg p-2 -m-2 transition-all duration-300 group/item"
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          transition={{ duration: 0.3 }}
-                          whileHover={{ x: 4 }}
-                        >
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0 group-hover/item:scale-125 group-hover/item:bg-accent transition-all duration-300" />
-                          <p className="text-muted-foreground leading-relaxed text-sm group-hover/item:text-foreground transition-colors duration-300">{achievement}</p>
-                        </motion.li>
-                      ))}
-                      {experience.achievements.length > 2 && (
-                        <motion.li 
-                          className="flex items-center gap-2 mt-3"
-                          whileHover={{ x: 2 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <button
-                            onClick={() => toggleExpanded(index)}
-                            className="flex items-center gap-2 text-primary hover:text-primary/80 hover:bg-primary/10 px-3 py-1 rounded-lg transition-all duration-300 text-sm font-medium group/btn border border-transparent hover:border-primary/30"
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0 group-hover/item:scale-125 group-hover/item:bg-accent transition-all duration-300" />
+                            <p className="text-muted-foreground leading-relaxed text-sm group-hover/item:text-foreground transition-colors duration-300">{achievement}</p>
+                          </motion.li>
+                        ))}
+                        {experience.achievements.length > 2 && (
+                          <motion.li
+                            className="flex items-center gap-2 mt-3"
+                            whileHover={{ x: 2 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            {expandedCards[index] ? (
-                              <>
-                                <ChevronUp className="h-4 w-4 group-hover/btn:scale-125 group-hover/btn:rotate-180 transition-all duration-300" />
-                                Show Less
-                              </>
-                            ) : (
-                              <>
-                                <ChevronDown className="h-4 w-4 group-hover/btn:scale-125 group-hover/btn:bounce transition-all duration-300" />
-                                +{experience.achievements.length - 2} more achievements...
-                              </>
-                            )}
-                          </button>
-                        </motion.li>
-                      )}
-                    </ul>
-                  </div>
+                            <button
+                              onClick={() => toggleExpanded(index)}
+                              className="flex items-center gap-2 text-primary hover:text-primary/80 hover:bg-primary/10 px-3 py-1 rounded-lg transition-all duration-300 text-sm font-medium group/btn border border-transparent hover:border-primary/30"
+                            >
+                              {expandedCards[index] ? (
+                                <>
+                                  <ChevronUp className="h-4 w-4 group-hover/btn:scale-125 group-hover/btn:rotate-180 transition-all duration-300" />
+                                  Show Less
+                                </>
+                              ) : (
+                                <>
+                                  <ChevronDown className="h-4 w-4 group-hover/btn:scale-125 group-hover/btn:bounce transition-all duration-300" />
+                                  +{experience.achievements.length - 2} more achievements...
+                                </>
+                              )}
+                            </button>
+                          </motion.li>
+                        )}
+                      </ul>
+                    </div>
 
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2 text-sm group-hover:text-primary transition-colors duration-300">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {experience.technologies.slice(0, expandedTechnologies[index] ? experience.technologies.length : 6).map((tech, techIndex) => (
-                        <motion.div
-                          key={tech}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: techIndex * 0.05 }}
-                          whileHover={{ scale: 1.1, y: -2 }}
-                        >
-                          <Badge variant="secondary" className="text-xs px-2 py-1 hover:bg-primary/20 hover:text-primary hover:border-primary/30 transition-all duration-300 cursor-pointer">
-                            {tech}
-                          </Badge>
-                        </motion.div>
-                      ))}
-                      {experience.technologies.length > 6 && (
-                        <motion.div
-                          whileHover={{ scale: 1.1, y: -2 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Badge 
-                            variant="outline" 
-                            className="text-xs px-2 py-1 hover:bg-accent/20 hover:text-accent hover:border-accent/50 transition-all duration-300 cursor-pointer select-none"
-                            onClick={() => toggleTechnologies(index)}
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-2 text-sm group-hover:text-primary transition-colors duration-300">Technologies Used</h4>
+                      <div className="flex flex-wrap gap-1.5">
+                        {experience.technologies.slice(0, expandedTechnologies[index] ? experience.technologies.length : 6).map((tech, techIndex) => (
+                          <motion.div
+                            key={tech}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, delay: techIndex * 0.05 }}
+                            whileHover={{ scale: 1.1, y: -2 }}
                           >
-                            {expandedTechnologies[index] ? (
-                              <>
-                                <ChevronUp className="h-3 w-3 mr-1" />
-                                Show less
-                              </>
-                            ) : (
-                              `+${experience.technologies.length - 6}`
-                            )}
-                          </Badge>
-                        </motion.div>
-                      )}
+                            <Badge variant="secondary" className="text-xs px-2 py-1 hover:bg-primary/20 hover:text-primary hover:border-primary/30 transition-all duration-300 cursor-pointer">
+                              {tech}
+                            </Badge>
+                          </motion.div>
+                        ))}
+                        {experience.technologies.length > 6 && (
+                          <motion.div
+                            whileHover={{ scale: 1.1, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <Badge
+                              variant="outline"
+                              className="text-xs px-2 py-1 hover:bg-accent/20 hover:text-accent hover:border-accent/50 transition-all duration-300 cursor-pointer select-none"
+                              onClick={() => toggleTechnologies(index)}
+                            >
+                              {expandedTechnologies[index] ? (
+                                <>
+                                  <ChevronUp className="h-3 w-3 mr-1" />
+                                  Show less
+                                </>
+                              ) : (
+                                `+${experience.technologies.length - 6}`
+                              )}
+                            </Badge>
+                          </motion.div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
+                  </CardContent>
                 </div>
               </Card>
             </motion.div>
