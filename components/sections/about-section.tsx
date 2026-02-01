@@ -56,12 +56,12 @@ export function AboutSection() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <motion.div 
+            <motion.div
               className="prose prose-lg max-w-none"
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.3 }}
             >
-              <motion.p 
+              <motion.p
                 className="text-muted-foreground text-justify leading-relaxed hover:text-foreground/90 transition-colors duration-300 cursor-default mb-6"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
@@ -69,23 +69,23 @@ export function AboutSection() {
                 I began my journey with a strong foundation in Information Technology at
                 <span className="text-foreground font-medium hover:text-primary transition-colors duration-200"> Savitribai Phule Pune University</span>, graduating with
                 honors in Data Science. Today, I'm pursuing my Master's in Computer Science at
-                <span className="text-foreground font-medium hover:text-primary transition-colors duration-200"> Indiana University Bloomington</span> (GPA 3.8/4.0),
+                <span className="text-foreground font-medium hover:text-primary transition-colors duration-200"> Indiana University Bloomington</span> (GPA 3.83/4.0),
                 focusing on Cloud Computing, Advanced Databases, and Applied Machine Learning.
               </motion.p>
 
-              <motion.p 
+              <motion.p
                 className="text-muted-foreground text-justify leading-relaxed hover:text-foreground/90 transition-colors duration-300 cursor-default"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                From solving SQL queries to designing cloud-scale ETL pipelines, my story is about turning curiosity into scalable engineering. 
+                From solving SQL queries to designing cloud-scale ETL pipelines, my story is about turning curiosity into scalable engineering.
                 Along the way, I’ve gone from building projects at hackathons to winning them, thriving at the intersection of data engineering and cloud architecture,
                 where I focus on building systems that not only work but scale beautifully.
               </motion.p>
             </motion.div>
 
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 y: -5,
                 transition: { duration: 0.3 }
@@ -115,7 +115,7 @@ export function AboutSection() {
 
             {/* Publications Card moved to left column */}
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 y: -5,
                 transition: { duration: 0.3 }
@@ -136,8 +136,8 @@ export function AboutSection() {
                         <h4 className="font-medium text-foreground text-sm leading-tight">Implementation Paper: Forecasting Stock Price using Machine Learning</h4>
                         <p className="text-xs text-muted-foreground mt-1">IJARSCT • May 16, 2023</p>
                       </div>
-                      <Button 
-                        size="sm" 
+                      <Button
+                        size="sm"
                         variant="outline"
                         className="text-xs h-8 px-3 hover:bg-primary hover:text-primary-foreground transition-colors flex-shrink-0"
                         onClick={() => window.open('https://ijarsct.co.in/Paper11104.pdf', '_blank')}
@@ -151,8 +151,8 @@ export function AboutSection() {
                         <h4 className="font-medium text-foreground text-sm leading-tight">The Review: Forecasting Stock Price using Machine Learning</h4>
                         <p className="text-xs text-muted-foreground mt-1">IJARSCT • May 4, 2023</p>
                       </div>
-                      <Button 
-                        size="sm" 
+                      <Button
+                        size="sm"
                         variant="outline"
                         className="text-xs h-8 px-3 hover:bg-primary hover:text-primary-foreground transition-colors flex-shrink-0"
                         onClick={() => window.open('https://ijarsct.co.in/Paper9866.pdf', '_blank')}
@@ -176,7 +176,7 @@ export function AboutSection() {
             className="space-y-6"
           >
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 y: -5,
                 transition: { duration: 0.3 }
@@ -186,24 +186,24 @@ export function AboutSection() {
               <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/70 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-pointer">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold text-foreground mb-4">Education</h3>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-medium text-foreground">Master of Science in Computer Science</h4>
-                    <p className="text-muted-foreground">Indiana University, Bloomington</p>
-                    <p className="text-sm text-muted-foreground">Aug 2024 - May 2026 • GPA: 3.8/4.0</p>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-medium text-foreground">Master of Science in Computer Science</h4>
+                      <p className="text-muted-foreground">Indiana University, Bloomington</p>
+                      <p className="text-sm text-muted-foreground">Aug 2024 - May 2026 • GPA: 3.83/4.0</p>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-foreground">Bachelor of Engineering in Information Technology</h4>
+                      <p className="text-muted-foreground">Savitribai Phule Pune University</p>
+                      <p className="text-sm text-muted-foreground">Aug 2019 - May 2023 • GPA: 8.90/10.00</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">Bachelor of Engineering in Information Technology</h4>
-                    <p className="text-muted-foreground">Savitribai Phule Pune University</p>
-                    <p className="text-sm text-muted-foreground">Aug 2019 - May 2023 • GPA: 8.90/10.00</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
             </motion.div>
 
             <motion.div
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 y: -5,
                 transition: { duration: 0.3 }
@@ -213,50 +213,50 @@ export function AboutSection() {
               <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:bg-card/70 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-pointer">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold text-foreground mb-4">Certifications</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-start gap-4">
-                    <div className="flex-1">
-                      <h4 className="font-medium text-foreground">AWS Certified Developer – Associate</h4>
-                      <p className="text-sm text-muted-foreground">Valid until Aug 4, 2027</p>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-start gap-4">
+                      <div className="flex-1">
+                        <h4 className="font-medium text-foreground">AWS Certified Developer – Associate</h4>
+                        <p className="text-sm text-muted-foreground">Valid until Aug 4, 2027</p>
+                      </div>
+                      <div className="flex items-center gap-2 flex-shrink-0">
+                        <Badge variant="outline" className="text-xs">
+                          Active
+                        </Badge>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="text-xs h-8 px-3 hover:bg-primary hover:text-primary-foreground transition-colors"
+                          onClick={() => window.open('https://www.credly.com/badges/d04634db-ebcd-4b38-b50f-98759d0d71e3?source=linked_in_profile', '_blank')}
+                        >
+                          <ExternalLink className="w-3 h-3 mr-1" />
+                          Verify
+                        </Button>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 flex-shrink-0">
-                      <Badge variant="outline" className="text-xs">
-                        Active
-                      </Badge>
-                      <Button 
-                        size="sm" 
-                        variant="outline"
-                        className="text-xs h-8 px-3 hover:bg-primary hover:text-primary-foreground transition-colors"
-                        onClick={() => window.open('https://www.credly.com/badges/d04634db-ebcd-4b38-b50f-98759d0d71e3?source=linked_in_profile', '_blank')}
-                      >
-                        <ExternalLink className="w-3 h-3 mr-1" />
-                        Verify
-                      </Button>
+                    <div className="flex justify-between items-start gap-4">
+                      <div className="flex-1">
+                        <h4 className="font-medium text-foreground">Azure AI Fundamentals</h4>
+                        <p className="text-sm text-muted-foreground">Issued Jul 22, 2022</p>
+                      </div>
+                      <div className="flex items-center gap-2 flex-shrink-0">
+                        <Badge variant="outline" className="text-xs">
+                          Certified
+                        </Badge>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="text-xs h-8 px-3 hover:bg-primary hover:text-primary-foreground transition-colors"
+                          onClick={() => window.open('https://www.credly.com/badges/ca52d7fa-19f1-4223-91a1-aff70e294ba1/public_url', '_blank')}
+                        >
+                          <ExternalLink className="w-3 h-3 mr-1" />
+                          Verify
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex justify-between items-start gap-4">
-                    <div className="flex-1">
-                      <h4 className="font-medium text-foreground">Azure AI Fundamentals</h4>
-                      <p className="text-sm text-muted-foreground">Issued Jul 22, 2022</p>
-                    </div>
-                    <div className="flex items-center gap-2 flex-shrink-0">
-                      <Badge variant="outline" className="text-xs">
-                        Certified
-                      </Badge>
-                      <Button 
-                        size="sm" 
-                        variant="outline"
-                        className="text-xs h-8 px-3 hover:bg-primary hover:text-primary-foreground transition-colors"
-                        onClick={() => window.open('https://www.credly.com/badges/ca52d7fa-19f1-4223-91a1-aff70e294ba1/public_url', '_blank')}
-                      >
-                        <ExternalLink className="w-3 h-3 mr-1" />
-                        Verify
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
             </motion.div>
           </motion.div>
         </div>
