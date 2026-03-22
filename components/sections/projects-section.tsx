@@ -4,9 +4,30 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Github, ExternalLink, Trophy, Star, GitFork } from "lucide-react"
+import { Github, ExternalLink, Trophy, Star, GitFork, Youtube } from "lucide-react"
 
 const featuredProjects = [
+  {
+    title: "DataLens",
+    subtitle: "Multimodal AI Data Storytelling Platform",
+    description:
+      "An AI-powered platform that transforms raw CSV/Excel data into rich, multimodal stories using Google Gemini. Features a real-time voice agent for hands-free data exploration, RAG-powered conversations, and parallel image generation woven into narratives.",
+    achievements: [
+      "Live deployment on Google Cloud Run with full async FastAPI backend",
+      "Triple-perspective storytelling (ELI5, Architecture, Analyst) streamed in real-time",
+      "Gemini Live Voice Agent via bidirectional WebSocket for conversational data exploration",
+      "RAG pipeline with Vertex AI Vector Search (text-embedding-004, 768 dims)",
+    ],
+    technologies: ["Google Gemini", "FastAPI", "React", "TypeScript", "Vertex AI", "Cloud Run", "GCS", "Firestore", "WebSockets", "SSE"],
+    githubUrl: "https://github.com/varunsonawane/DataLens",
+    liveUrl: "https://datalens-backend-844382502061.us-central1.run.app/",
+    videoUrl: "https://youtu.be/fWmHkDYD4-4?si=Q0_HFH1HI2krSjHl",
+    featured: true,
+    award: "Hackathon Project",
+  },
+
+
+
   {
     title: "VoiceLegal AI",
     subtitle: "AI-Powered Legal Document Assistant",
@@ -20,9 +41,29 @@ const featuredProjects = [
     ],
     technologies: ["Google Gemini", "ElevenLabs", "React", "FastAPI", "Chrome Extension", "Docker", "GCP"],
     githubUrl: "https://github.com/varunsonawane/voicelegal-ai-web-extension",
-    liveUrl: null,
+    liveUrl: "https://voicelegal-ai-web-extension.vercel.app/",
+    videoUrl: "https://youtu.be/6w8ochnLB50",
     featured: true,
     award: "Hackathon Project",
+  },
+
+  {
+    title: "DocWeaver",
+    subtitle: "Multi-Agent Clinical Intelligence Platform",
+    description:
+      "A multi-agent AI orchestration platform that transforms clinical workflows through intelligent document processing. Uses 20+ specialized AI agents working in parallel to analyze medical records, generate SOAP notes, and automate care coordination.",
+    achievements: [
+      "20+ specialized AI agents for each distinct clinical task",
+      "Multi-source data fusion, processes 5+ documents in parallel with temporal analysis",
+      "Generates complete SOAP notes automatically from brief clinical notes",
+      "Automated referral letters, follow-ups, and patient education materials",
+    ],
+    technologies: ["Google Gemini", "FastAPI", "Next.js", "TypeScript", "Python", "Streamlit", "Async Processing"],
+    githubUrl: "https://github.com/varunsonawane/docweaver",
+    liveUrl: null,
+    videoUrl: "https://youtu.be/vzvPgJDEwkU?si=4QlNXSTwrzjLhMQ7",
+    featured: true,
+    award: null,
   },
 
   {
@@ -39,6 +80,7 @@ const featuredProjects = [
     technologies: ["Flask", "Docker", "Qwen LLM", "Ollama", "ReAct Framework", "Python", "REST API", "React"],
     githubUrl: "https://github.com/varunsonawane/IdeaGeine",
     liveUrl: null,
+    videoUrl: "https://youtu.be/IvfaKyzZBWM?si=hM1rQZCWILffCo1i",
     featured: true,
     award: "2nd Prize Winner",
   },
@@ -56,6 +98,7 @@ const featuredProjects = [
     technologies: ["AWS SageMaker", "PySpark", "AWS Lambda", "EC2", "S3", "Power BI", "Python"],
     githubUrl: "https://github.com/varunsonawane/Big-data-analytics-aws-pyspark",
     liveUrl: null,
+    videoUrl: null,
     featured: true,
     award: null,
   },
@@ -83,6 +126,7 @@ const featuredProjects = [
     ],
     githubUrl: "https://github.com/varunsonawane/shieldscraper",
     liveUrl: null,
+    videoUrl: null,
     featured: true,
     award: null,
   },
@@ -100,6 +144,7 @@ const featuredProjects = [
     technologies: ["Apache Airflow", "Docker", "PostgreSQL", "Python", "OpenWeather API", "ETL"],
     githubUrl: "https://github.com/varunsonawane/ETL-Weather",
     liveUrl: null,
+    videoUrl: null,
     featured: true,
     award: null,
   },
@@ -117,6 +162,7 @@ const featuredProjects = [
     technologies: ["D3.js", "JavaScript", "Python", "Flask", "PostgreSQL", "Data Visualization"],
     githubUrl: "https://github.com/varunsonawane/Data_Viz",
     liveUrl: null,
+    videoUrl: null,
     featured: true,
     award: null,
   },
@@ -208,7 +254,7 @@ export function ProjectsSection() {
                 <div className="relative z-10">
                   <CardHeader className="pb-4">
                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 mb-2">
                           <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
                           {project.award && (
@@ -218,10 +264,9 @@ export function ProjectsSection() {
                             </div>
                           )}
                         </div>
-                        <p className="text-muted-foreground font-medium mb-3 group-hover:text-foreground transition-colors duration-300">{project.subtitle}</p>
-                        <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">{project.description}</p>
+                        <p className="text-muted-foreground font-medium group-hover:text-foreground transition-colors duration-300">{project.subtitle}</p>
                       </div>
-                      <div className="flex gap-2">
+                      <div className="flex flex-wrap gap-2 flex-shrink-0">
                         <Button variant="outline" size="sm" asChild className="hover:bg-primary/10 hover:border-primary/50 hover:text-primary hover:scale-105 transition-all duration-300">
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                             <Github className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
@@ -232,12 +277,21 @@ export function ProjectsSection() {
                           <Button variant="outline" size="sm" asChild className="hover:bg-accent/10 hover:border-accent/50 hover:text-accent hover:scale-105 transition-all duration-300">
                             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                               <ExternalLink className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                              Live Demo
+                              Live
+                            </a>
+                          </Button>
+                        )}
+                        {project.videoUrl && (
+                          <Button variant="outline" size="sm" asChild className="hover:bg-red-500/10 hover:border-red-500/50 hover:text-red-500 hover:scale-105 transition-all duration-300">
+                            <a href={project.videoUrl} target="_blank" rel="noopener noreferrer">
+                              <Youtube className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                              Demo
                             </a>
                           </Button>
                         )}
                       </div>
                     </div>
+                    <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-300 mt-3">{project.description}</p>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     <div>
