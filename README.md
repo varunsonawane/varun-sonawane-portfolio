@@ -85,6 +85,6 @@ The site is deployed on Vercel with automatic deployments on push to `main`.
 ## Contact
  
 - **Portfolio:** [vson.vercel.app](https://vson.vercel.app)
-- **LinkedIn:** [linkedin.com/in/varunsonawane](https://linkedin.com/in/varunsonawane)
+- **LinkedIn:** [linkedin.com/in/varunsonawane](https://linkedin.com/in/varun-sonawane)
 - **GitHub:** [github.com/varunsonawane](https://github.com/varunsonawane)
  
