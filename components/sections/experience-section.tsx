@@ -8,6 +8,32 @@ import { useState } from "react"
 
 const experiences = [
   {
+    title: "Associate Instructor, Data Science",
+    company: "Indiana University Bloomington, Luddy School of Informatics",
+    companyUrl: "https://luddy.indiana.edu/",
+    location: "Bloomington, Indiana, USA",
+    period: "Jan 2025 – May 2026",
+    type: "Academic",
+    achievements: [
+      "Supported instruction for two graduate and undergraduate data science courses with a combined enrollment of 150+ students.",
+      "Facilitated weekly office hours and graded assignments for DSCI-D595 (Data Science On-Ramp), a graduate-level course covering Scala, Apache Spark, Tableau, NLP, and web scraping for ~30 students.",
+      "Assisted in course delivery for DSCI-D321 (Data Representations), an undergraduate course of 120–130 students covering data structures, SQL, relational databases, encoding schemes, time series, and ML foundations.",
+      "Designed and published interactive Canvas course pages using IU's CSS conventions and crimson branding, including guided modules on KNN and Hierarchical Clustering in R with embedded RStudio plot exports.",
+      "Collaborated with faculty on exam preparation, rubric creation, and timely feedback to support student learning outcomes.",
+    ],
+    technologies: [
+      "Scala",
+      "Apache Spark",
+      "Tableau",
+      "NLP",
+      "SQL",
+      "R",
+      "Python",
+      "Machine Learning",
+      "Data Structures",
+    ],
+  },
+  {
     title: "Data Engineer Intern",
     company: "The Commons XR",
     companyUrl: "https://thecommonsxr.com/",

@@ -66,11 +66,17 @@ export function AboutSection() {
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                I began my journey with a strong foundation in Information Technology at
-                <span className="text-foreground font-medium hover:text-primary transition-colors duration-200"> Savitribai Phule Pune University</span>, graduating with
-                honors in Data Science. Today, I'm pursuing my Master's in Computer Science at
-                <span className="text-foreground font-medium hover:text-primary transition-colors duration-200"> Indiana University Bloomington</span> (GPA 3.83/4.0),
-                focusing on Cloud Computing, Advanced Databases, and Applied Machine Learning.
+                I started with a B.E. in Information Technology from
+                <span className="text-foreground font-medium hover:text-primary transition-colors duration-200"> Savitribai Phule Pune University</span>, graduating with honors and a specialization in Data Science. Now I’m finishing my Master’s in Computer Science at
+                <span className="text-foreground font-medium hover:text-primary transition-colors duration-200"> Indiana University Bloomington</span> (GPA 3.86/4.0), with coursework in Cloud Computing, Advanced Databases, and Applied Machine Learning.
+              </motion.p>
+
+              <motion.p
+                className="text-muted-foreground text-justify leading-relaxed hover:text-foreground/90 transition-colors duration-300 cursor-default mb-6"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                My work sits at the intersection of data engineering and cloud architecture. I build pipelines that move millions of records, warehouses on Medallion Architecture, and AI systems that actually ship. From my first SQL query to deploying RAG pipelines on Vertex AI, the through line has been the same: turn a hard problem into something that scales.
               </motion.p>
 
               <motion.p
@@ -78,9 +84,7 @@ export function AboutSection() {
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                From solving SQL queries to designing cloud-scale ETL pipelines, my story is about turning curiosity into scalable engineering.
-                Along the way, I’ve gone from building projects at hackathons to winning them, thriving at the intersection of data engineering and cloud architecture,
-                where I focus on building systems that not only work but scale beautifully.
+                Outside coursework, I’ve competed in and won hackathons, built full-stack data products with real teams, and picked up AWS and Azure certifications along the way. I’m at my best when the problem is messy and the solution has to be clean.
               </motion.p>
             </motion.div>
 
@@ -190,7 +194,7 @@ export function AboutSection() {
                     <div>
                       <h4 className="font-medium text-foreground">Master of Science in Computer Science</h4>
                       <p className="text-muted-foreground">Indiana University, Bloomington</p>
-                      <p className="text-sm text-muted-foreground">Aug 2024 - May 2026 • GPA: 3.83/4.0</p>
+                      <p className="text-sm text-muted-foreground">Aug 2024 - May 2026 • GPA: 3.86/4.0</p>
                     </div>
                     <div>
                       <h4 className="font-medium text-foreground">Bachelor of Engineering in Information Technology</h4>

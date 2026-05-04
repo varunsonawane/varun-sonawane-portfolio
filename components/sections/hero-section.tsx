@@ -23,6 +23,7 @@ export function HeroSection() {
 
   const roles = [
     'Data Engineer',
+    'Data Analyst',
     'Software Developer',
     'AI Engineer',
     'ML Engineer',

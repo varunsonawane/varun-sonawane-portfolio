@@ -8,6 +8,25 @@ import { Github, ExternalLink, Trophy, Star, GitFork, Youtube } from "lucide-rea
 
 const featuredProjects = [
   {
+    title: "IRIS",
+    subtitle: "Intelligent Retail & Ingredient Scanner",
+    description:
+      "An AI-powered grocery assistant that bridges personal health data with real-time food decisions. Users upload lab reports and scan product labels to receive personalized verdicts — Safe, Caution, or Avoid — powered by Claude's vision and reasoning.",
+    achievements: [
+      "Built at the Claude Builder Club Hackathon by Indiana University students",
+      "Lab report analysis extracting health markers like cholesterol and allergies",
+      "Real-time product scanning via camera with instant Safe/Caution/Avoid verdicts",
+      "Voice feedback via ElevenLabs for hands-free shopping and smart alternative suggestions",
+    ],
+    technologies: ["Claude (Anthropic)", "ElevenLabs", "React", "Vite", "Node.js", "Express", "Tailwind CSS", "Python", "JavaScript"],
+    githubUrl: "https://github.com/varunsonawane/iris",
+    liveUrl: "https://iris-assistant-iu-claude.fly.dev/onboarding",
+    videoUrl: "https://youtu.be/0iLcWrAg5fA",
+    featured: true,
+    award: "Honorable Mention Claude Hackathon",
+  },
+
+  {
     title: "DataLens",
     subtitle: "Multimodal AI Data Storytelling Platform",
     description:
@@ -23,7 +42,7 @@ const featuredProjects = [
     liveUrl: "https://datalens-backend-844382502061.us-central1.run.app/",
     videoUrl: "https://youtu.be/fWmHkDYD4-4?si=Q0_HFH1HI2krSjHl",
     featured: true,
-    award: "Hackathon Project",
+    award: "Google Gemini 3 Hackathon Project",
   },
 
 
@@ -44,7 +63,28 @@ const featuredProjects = [
     liveUrl: "https://voicelegal-ai-web-extension.vercel.app/",
     videoUrl: "https://youtu.be/6w8ochnLB50",
     featured: true,
-    award: "Hackathon Project",
+    award: "GCP Hackathon Project",
+  },
+
+
+
+  {
+    title: "EngageIU",
+    subtitle: "Campus Event Attendance Leaderboard",
+    description:
+      "A real-time campus event engagement platform built for a 24-hour hackathon. Students earn points by entering event check-in codes, with live leaderboard updates via Server-Sent Events and a JWT-protected admin dashboard for full event management.",
+    achievements: [
+      "Real-time leaderboard via Server-Sent Events with live connection status indicator",
+      "Achievement badges (Top, Rising, Dedicated, Consistent) with week-over-week rank trends",
+      "JWT-protected admin dashboard with full event CRUD and QR code generation",
+      "Cryptographically secure check-in codes with timestamped attendance logging and CSV export",
+    ],
+    technologies: ["FastAPI", "PostgreSQL", "Docker", "Python", "SQLAlchemy", "Server-Sent Events", "JWT", "HTML", "CSS", "JavaScript"],
+    githubUrl: "https://github.com/varunsonawane/Engage_IU",
+    liveUrl: "engageiu.mooo.com",
+    videoUrl: "https://youtu.be/wctD0pbrwcA",
+    featured: true,
+    award: "Luddy Hackathon Winner",
   },
 
   {
@@ -161,7 +201,7 @@ const featuredProjects = [
     ],
     technologies: ["D3.js", "JavaScript", "Python", "Flask", "PostgreSQL", "Data Visualization"],
     githubUrl: "https://github.com/varunsonawane/Data_Viz",
-    liveUrl: null,
+    liveUrl: "https://aryandhuru49.github.io/Indian-Data-Premier-League/src/html/index.html",
     videoUrl: null,
     featured: true,
     award: null,
